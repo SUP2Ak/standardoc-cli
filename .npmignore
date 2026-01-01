@@ -1,0 +1,12 @@
+src/
+tsconfig.json
+scripts/
+examples/
+node_modules/
+*.log
+.DS_Store
+.git/
+.gitignore
+bun.lock
+*.map
+

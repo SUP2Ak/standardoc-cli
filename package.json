@@ -1,11 +1,11 @@
 {
   "name": "standardoc-cli",
-  "version": "1.1.0",
-  "description": "CLI pour parser et générer de la documentation depuis les commentaires avec @tags",
+  "version": "1.1.1",
+  "description": "CLI tool for extracting and injecting documentation from code comments using @tags",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "standardoc": "./dist/cli.js"
+    "standardoc": "./dist/cli/cli.js"
   },
   "scripts": {
     "build": "tsc && node scripts/add-extensions.js",
@@ -19,16 +19,30 @@
     "parser",
     "tags",
     "docs",
-    "cli"
+    "cli",
+    "markdown",
+    "mdx",
+    "code-documentation"
   ],
   "author": "Standardoc",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SUP2Ak/standardoc-cli.git"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "USAGE.md",
+    "CONTRIBUTING.md",
+    "LICENSE"
+  ],
   "devDependencies": {
     "@types/node": "^20.10.0",
     "typescript": "^5.3.0"
   },
   "dependencies": {
-    "fast-glob": "^3.3.1"
+    "fast-glob": "^3.3.3"
   }
 }
 
