@@ -1,5 +1,5 @@
 /**
- * @doc.init transformer Transformer Module
+ * @doc transformer Transformer Module
  * @description Markdown transformer for replacing DSL expressions with values
  */
 

@@ -1,5 +1,5 @@
 /**
- * @doc.init config_loader Config Loader
+ * @doc config_loader Config Loader
  * @description Loads and merges custom configuration from .standardoc.json
  */
 
@@ -20,23 +20,24 @@ export interface TransformConfig {
 }
 
 export interface StandardocConfig {
+  docTag?: string; // Custom tag name (default: "doc")
   commentPatterns?: Record<string, CommentPatternConfig>;
   transform?: TransformConfig;
 }
 
 /**
- * @doc.init loadConfig loadConfig
+ * @doc loadConfig loadConfig
  * @description Loads configuration from .standardoc.json if it exists
  * @param workspaceRoot The workspace root directory
  * @returns Configuration object or null if file doesn't exist
  */
 export function loadConfig(workspaceRoot: string): StandardocConfig | null {
   const configPath = path.join(workspaceRoot, '.standardoc.json');
-  
+
   if (!existsSync(configPath)) {
     return null;
   }
-  
+
   try {
     const content = readFileSync(configPath, 'utf-8');
     return JSON.parse(content) as StandardocConfig;
@@ -47,32 +48,44 @@ export function loadConfig(workspaceRoot: string): StandardocConfig | null {
 }
 
 /**
- * @doc.init generateDefaultConfig generateDefaultConfig
+ * @doc generateDefaultConfig generateDefaultConfig
  * @description Generates a default .standardoc.json file with current patterns
  * @param workspaceRoot The workspace root directory
  */
 export function generateDefaultConfig(workspaceRoot: string): void {
   const configPath = path.join(workspaceRoot, '.standardoc.json');
-  
+
   if (existsSync(configPath)) {
     console.warn('.standardoc.json already exists. Skipping generation.');
     return;
   }
-  
+
+  // Convert COMMENT_STYLES to ensure all have single defined
+  const commentPatterns: Record<string, CommentPatternConfig> = {};
+  for (const [ext, pattern] of Object.entries(COMMENT_STYLES)) {
+    commentPatterns[ext] = {
+      single: pattern.single || ['//'],
+      multi: pattern.multi,
+      docSingle: pattern.docSingle,
+      docMulti: pattern.docMulti,
+    };
+  }
+
   const config: StandardocConfig = {
-    commentPatterns: COMMENT_STYLES,
+    docTag: 'doc',
+    commentPatterns,
     transform: {
       entry: './docs-dev',
       output: './docs',
     },
   };
-  
+
   writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf-8');
   console.log(`Generated .standardoc.json at ${configPath}`);
 }
 
 /**
- * @doc.init mergeCommentPatterns mergeCommentPatterns
+ * @doc mergeCommentPatterns mergeCommentPatterns
  * @description Merges custom patterns with default patterns
  * @description Custom patterns override default patterns for the same extension
  * @param defaultPatterns Default patterns from code
@@ -86,9 +99,9 @@ export function mergeCommentPatterns(
   if (!customPatterns) {
     return defaultPatterns;
   }
-  
+
   const merged = { ...defaultPatterns };
-  
+
   for (const [ext, patterns] of Object.entries(customPatterns)) {
     if (merged[ext]) {
       // Merge with existing, custom overrides
@@ -101,7 +114,6 @@ export function mergeCommentPatterns(
       merged[ext] = patterns;
     }
   }
-  
+
   return merged;
 }
-

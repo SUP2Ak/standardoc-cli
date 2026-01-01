@@ -1,4 +1,4 @@
----@doc.init add add
+---@doc add add
 ---@description Calculates the sum of two numbers
 ---@param a number First number
 ---@param b number Second number
@@ -12,7 +12,7 @@ function add(a, b)
     return a + b
 end
 
----@doc.init multiply multiply
+---@doc multiply multiply
 ---@description Multiplies two numbers
 ---@param x number First factor
 ---@param y number Second factor

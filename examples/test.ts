@@ -1,5 +1,5 @@
 /**
- * @doc.init user User
+ * @doc user User
  * @description A class representing a user
  * @example
  * ```typescript
@@ -12,7 +12,7 @@ export class User {
     private email: string;
     
     /**
-     * @doc.init user_constructor constructor
+     * @doc user_constructor constructor
      * @description Creates a new user instance
      * @param name string The user's name
      * @param email string The user's email
@@ -23,7 +23,7 @@ export class User {
     }
     
     /**
-     * @doc.init user_getName getName
+     * @doc user_getName getName
      * @description Gets the user's name
      * @returns string The user's name
      */
@@ -32,7 +32,7 @@ export class User {
     }
     
     /**
-     * @doc.init user_getEmail getEmail
+     * @doc user_getEmail getEmail
      * @returns string The user's email
      */
     getEmail(): string {
@@ -40,7 +40,7 @@ export class User {
     }
     
     /**
-     * @doc.init user_setName setName
+     * @doc user_setName setName
      * @description Modifies the user's name
      * @param name string The new name
      */

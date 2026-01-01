@@ -1,5 +1,5 @@
 /**
- * @doc.init comment_detector Comment Style Detector
+ * @doc comment_detector Comment Style Detector
  * @description Detects comment styles by language/extension without understanding code
  */
 
@@ -35,7 +35,7 @@ export const COMMENT_STYLES: Record<string, CommentPatternConfig> = {
     docSingle: ['///'],
     docMulti: { start: '/**', end: '*/' },
   },
-  
+
   c: {
     single: ['//'],
     multi: { start: '/*', end: '*/' },
@@ -52,30 +52,30 @@ export const COMMENT_STYLES: Record<string, CommentPatternConfig> = {
     single: ['//'],
     multi: { start: '/*', end: '*/' },
   },
-  
+
   py: {
     single: ['#'],
   },
-  
+
   rs: {
     single: ['//'],
     multi: { start: '/*', end: '*/' },
     docSingle: ['///'],
     docMulti: { start: '/**', end: '*/' },
   },
-  
+
   hlsl: {
     single: ['//'],
     multi: { start: '/*', end: '*/' },
   },
-  
+
   sh: {
     single: ['#'],
   },
   bash: {
     single: ['#'],
   },
-  
+
   txt: {
     single: [],
   },
@@ -87,7 +87,7 @@ export const COMMENT_STYLES: Record<string, CommentPatternConfig> = {
 let customPatterns: Record<string, CommentPatternConfig> | null = null;
 
 /**
- * @doc.init setCustomPatterns setCustomPatterns
+ * @doc setCustomPatterns setCustomPatterns
  * @description Sets custom comment patterns from config
  * @param patterns Custom patterns to use
  */
@@ -96,7 +96,7 @@ export function setCustomPatterns(patterns: Record<string, CommentPatternConfig>
 }
 
 /**
- * @doc.init detectCommentStyle detectCommentStyle
+ * @doc detectCommentStyle detectCommentStyle
  * @description Detects comment style for a given language/extension
  * @description Uses custom patterns if available, otherwise falls back to defaults
  * @param extension File extension (e.g., '.ts', '.lua')
@@ -114,7 +114,7 @@ export function detectCommentStyle(
 } | null {
   const ext = extension.toLowerCase().replace(/^\./, '');
   const lang = language?.toLowerCase();
-  
+
   // Check custom patterns first
   if (customPatterns) {
     const customPattern = customPatterns[ext] || (lang ? customPatterns[lang] : undefined);
@@ -128,7 +128,7 @@ export function detectCommentStyle(
       };
     }
   }
-  
+
   // Fall back to defaults
   const defaultPattern = COMMENT_STYLES[ext] || (lang ? COMMENT_STYLES[lang] : undefined);
   if (defaultPattern) {
@@ -139,7 +139,7 @@ export function detectCommentStyle(
       docMulti: defaultPattern.docMulti,
     };
   }
-  
+
   return {
     single: ['//'],
     multi: { start: '/*', end: '*/' },
@@ -147,7 +147,7 @@ export function detectCommentStyle(
 }
 
 /**
- * @doc.init extractCommentPrefix extractCommentPrefix
+ * @doc extractCommentPrefix extractCommentPrefix
  * @description Extracts comment prefix from a line
  * @description Returns null if the line is not a comment
  * @param line The line to check
@@ -159,9 +159,9 @@ export function extractCommentPrefix(
   styles: ReturnType<typeof detectCommentStyle>
 ): { prefix: string; style: CommentStyle } | null {
   if (!styles) return null;
-  
+
   const trimmed = line.trim();
-  
+
   if (styles.docSingle) {
     for (const prefix of styles.docSingle) {
       if (trimmed.startsWith(prefix)) {
@@ -169,7 +169,7 @@ export function extractCommentPrefix(
       }
     }
   }
-  
+
   if (styles.single) {
     for (const prefix of styles.single) {
       if (trimmed.startsWith(prefix)) {
@@ -177,24 +177,24 @@ export function extractCommentPrefix(
       }
     }
   }
-  
+
   if (styles.multi) {
     if (trimmed.includes(styles.multi.start)) {
       return { prefix: styles.multi.start, style: 'multi-line' };
     }
   }
-  
+
   if (styles.docMulti) {
     if (trimmed.includes(styles.docMulti.start)) {
       return { prefix: styles.docMulti.start, style: 'doc-multi' };
     }
   }
-  
+
   return null;
 }
 
 /**
- * @doc.init cleanCommentContent cleanCommentContent
+ * @doc cleanCommentContent cleanCommentContent
  * @description Cleans comment content by removing prefix
  * @param line The comment line to clean
  * @param prefix The comment prefix to remove
@@ -210,12 +210,12 @@ export function cleanCommentContent(
     const cleaned = line.replace(new RegExp(`^\\s*${escapeRegex(prefix)}`), '');
     return cleaned.trimStart();
   }
-  
+
   return line;
 }
 
 /**
- * @doc.init escapeRegex escapeRegex
+ * @doc escapeRegex escapeRegex
  * @description Escapes special regex characters in a string
  * @param str The string to escape
  * @returns The escaped string safe for use in regex

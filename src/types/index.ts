@@ -1,10 +1,10 @@
 /**
- * @doc.init types Types and Interfaces
+ * @doc types Types and Interfaces
  * @description Core types and interfaces for Standardoc CLI
  */
 
 /**
- * @doc.init DocMeta DocMeta
+ * @doc DocMeta DocMeta
  * @description Automatically injected metadata for each documentable block
  */
 export interface DocMeta {
@@ -16,14 +16,14 @@ export interface DocMeta {
 }
 
 /**
- * @doc.init TagData TagData
+ * @doc TagData TagData
  * @description Structure of parsed tag data
  * @description Each tag is an array of field arrays (string[][])
  */
 export type TagData = string[][];
 
 /**
- * @doc.init DocBlock DocBlock
+ * @doc DocBlock DocBlock
  * @description Canonical structure of a documentable block
  */
 export interface DocBlock {
@@ -33,7 +33,7 @@ export interface DocBlock {
 }
 
 /**
- * @doc.init CanonicalDoc CanonicalDoc
+ * @doc CanonicalDoc CanonicalDoc
  * @description Complete canonical JSON structure
  * @description Keys in format: doc.<key>
  */
@@ -42,7 +42,7 @@ export interface CanonicalDoc {
 }
 
 /**
- * @doc.init ScannerConfig ScannerConfig
+ * @doc ScannerConfig ScannerConfig
  * @description Configuration for workspace scanner
  */
 export interface ScannerConfig {
@@ -53,7 +53,7 @@ export interface ScannerConfig {
 }
 
 /**
- * @doc.init CommentParserConfig CommentParserConfig
+ * @doc CommentParserConfig CommentParserConfig
  * @description Configuration for comment parser
  */
 export interface CommentParserConfig {
@@ -62,7 +62,7 @@ export interface CommentParserConfig {
 }
 
 /**
- * @doc.init CommentStyle CommentStyle
+ * @doc CommentStyle CommentStyle
  * @description Supported comment style types
  */
 export type CommentStyle = 
@@ -72,7 +72,7 @@ export type CommentStyle =
   | 'doc-multi';
 
 /**
- * @doc.init ParsedComment ParsedComment
+ * @doc ParsedComment ParsedComment
  * @description Result of parsing a comment from source code
  */
 export interface ParsedComment {
@@ -84,7 +84,7 @@ export interface ParsedComment {
 }
 
 /**
- * @doc.init ExtractedTag ExtractedTag
+ * @doc ExtractedTag ExtractedTag
  * @description Result of extracting a tag from a comment
  */
 export interface ExtractedTag {
@@ -95,7 +95,7 @@ export interface ExtractedTag {
 }
 
 /**
- * @doc.init StandardocError StandardocError
+ * @doc StandardocError StandardocError
  * @description Standardoc error class (strict, non-silent)
  * @description Includes file, line, and column information for better error reporting
  */

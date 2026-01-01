@@ -1,5 +1,5 @@
 /**
- * @doc.init generator Generator Module
+ * @doc generator Generator Module
  * @description Canonical JSON generator for Standardoc
  */
 

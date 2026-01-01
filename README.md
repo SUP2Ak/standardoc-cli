@@ -56,11 +56,11 @@ Watch mode (continuously scan and transform). Not yet implemented.
 
 ## Documentation Format
 
-In your code, use `@doc.init` to mark documentable blocks:
+In your code, use `@doc` to mark documentable blocks (default, can be customized):
 
 ```typescript
 /**
- * @doc.init myFunction
+ * @doc myFunction
  * @description Adds two numbers together
  * @param a number First number
  * @param b number Second number
@@ -87,10 +87,11 @@ In your markdown files, use DSL expressions to inject documentation:
 
 ## Configuration
 
-Create a `.standardoc.json` file to customize comment patterns and transform settings:
+Create a `.standardoc.json` file to customize comment patterns, doc tag name, and transform settings:
 
 ```json
 {
+  "docTag": "doc",
   "commentPatterns": {
     "ts": {
       "single": ["//"],
@@ -105,6 +106,10 @@ Create a `.standardoc.json` file to customize comment patterns and transform set
   }
 }
 ```
+
+- `docTag`: Customize the tag name (default: `"doc"`). Use `"standardoc"` to use `@standardoc`, `"doc.entry"` to use `@doc.entry`, etc.
+- `commentPatterns`: Customize comment patterns for file extensions
+- `transform`: Configure entry/output directories for markdown transformation
 
 Use `standardoc init` to generate a default configuration file.
 

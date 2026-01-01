@@ -1,4 +1,4 @@
-# @doc.init math_utils MathUtils
+# @doc math_utils MathUtils
 # @description Mathematical utilities
 # @example
 # ```python
@@ -9,7 +9,7 @@
 class MathUtils:
     """Class for mathematical operations"""
     
-    # @doc.init factorial factorial
+    # @doc factorial factorial
     # @description Calculates the factorial of a number
     # @param n int Positive integer
     # @returns int The factorial of n
@@ -23,7 +23,7 @@ class MathUtils:
             return 1
         return n * MathUtils.factorial(n - 1)
     
-    # @doc.init gcd gcd
+    # @doc gcd gcd
     # @description Calculates the greatest common divisor
     # @param a int First number
     # @param b int Second number

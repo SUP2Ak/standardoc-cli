@@ -1,5 +1,5 @@
 /**
- * @doc.init standardoc_cli StandardocCLI
+ * @doc standardoc_cli StandardocCLI
  * @description Main entry point for Standardoc CLI library. Exports all core functionality for use as a library or via CLI.
  */
 

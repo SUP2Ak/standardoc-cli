@@ -1,5 +1,5 @@
-/// @doc.init calculator Calculator
-/// @description Structure pour effectuer des calculs mathématiques
+/// @doc calculator Calculator
+/// @description Structure to perform mathematical calculations
 /// @example
 /// ```rust
 /// let calc = Calculator::new();
@@ -8,27 +8,27 @@
 pub struct Calculator;
 
 impl Calculator {
-    /// @doc.init calculator_new new
-    /// @description Crée une nouvelle instance de Calculator
-    /// @returns Calculator Une nouvelle instance
+    /// @doc calculator_new new
+    /// @description Creates a new Calculator instance
+    /// @returns Calculator A new instance
     pub fn new() -> Self {
         Calculator
     }
     
-    /// @doc.init calculator_add add
-    /// @description Additionne deux nombres entiers
-    /// @param a i32 Premier nombre
-    /// @param b i32 Deuxième nombre
-    /// @returns i32 La somme
+    /// @doc calculator_add add
+    /// @description Adds two integers
+    /// @param a i32 First number
+    /// @param b i32 Second number
+    /// @returns i32 The sum
     pub fn add(&self, a: i32, b: i32) -> i32 {
         a + b
     }
     
-    /// @doc.init calculator_subtract subtract
-    /// @description Soustrait deux nombres
-    /// @param a i32 Nombre à soustraire
-    /// @param b i32 Nombre à soustraire de a
-    /// @returns i32 La différence
+    /// @doc calculator_subtract subtract
+    /// @description Subtracts two numbers
+    /// @param a i32 First number
+    /// @param b i32 Second number
+    /// @returns i32 The difference
     pub fn subtract(&self, a: i32, b: i32) -> i32 {
         a - b
     }

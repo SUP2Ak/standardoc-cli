@@ -2,7 +2,7 @@
 
 ## Basic Workflow
 
-1. **Write documentation in your code** using `@doc.init` tags
+1. **Write documentation in your code** using `@doc` tags (or custom tag from config)
 2. **Scan the workspace** to extract documentation
 3. **Write markdown files** with DSL expressions
 4. **Transform markdown files** to inject documentation
@@ -13,12 +13,12 @@
 
 ```typescript
 /**
- * @doc.init calculator Calculator
+ * @doc calculator Calculator
  * @description A simple calculator class
  */
 class Calculator {
   /**
-   * @doc.init calculator_add add
+   * @doc calculator_add add
    * @description Adds two numbers
    * @param a number First number
    * @param b number Second number
@@ -32,7 +32,7 @@ class Calculator {
 
 ### Tag Format
 
-- `@doc.init <key> <label>` - Marks a documentable block
+- `@doc <key> [label]` - Marks a documentable block (default tag, can be customized)
 - `@description` - Main description
 - `@param <type> <name> <description>` - Function parameter
 - `@returns <type> <description>` - Return value
@@ -79,6 +79,18 @@ See the `examples/` directory for complete examples in different languages:
 - JavaScript (`.js`)
 
 ## Configuration
+
+### Custom Doc Tag
+
+Customize the tag name used to mark documentable blocks:
+
+```json
+{
+  "docTag": "standardoc"
+}
+```
+
+This allows you to use `@standardoc` instead of `@doc`, or any other tag name you prefer (e.g., `"doc.entry"`, `"doc.define"`, `"doc.block"`). The default is `"doc"`.
 
 ### Custom Comment Patterns
 

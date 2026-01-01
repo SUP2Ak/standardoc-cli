@@ -1,5 +1,5 @@
 /**
- * @doc.init workspace_scanner Workspace Scanner
+ * @doc workspace_scanner Workspace Scanner
  * @description Scans files, parses comments, and generates canonical JSON
  */
 
@@ -12,7 +12,7 @@ import { extractDocBlocks } from '../extractor/index';
 import { generateCanonicalDoc } from '../generator/index';
 
 /**
- * @doc.init scanWorkspace scanWorkspace
+ * @doc scanWorkspace scanWorkspace
  * @description Scans a workspace and generates canonical JSON
  * @description Finds files matching patterns, parses comments, extracts blocks
  * @param config Scanner configuration with workspace root, include/exclude patterns
@@ -24,23 +24,23 @@ export async function scanWorkspace(config: ScannerConfig): Promise<CanonicalDoc
     includePatterns = ['**/*'],
     excludePatterns = ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/build/**'],
   } = config;
-  
+
   const allFiles = await fastGlob(includePatterns, {
     cwd: workspaceRoot,
     ignore: excludePatterns,
     absolute: true,
   });
-  
+
   const allBlocks: DocBlock[] = [];
-  
+
   for (const filePath of allFiles) {
     try {
       const content = readFileSync(filePath, 'utf-8');
       const extension = path.extname(filePath);
-      
+
       const comments = parseComments(content, filePath, { extension });
       const blocks = extractDocBlocks(comments, filePath, workspaceRoot);
-      
+
       allBlocks.push(...blocks);
     } catch (error) {
       if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
@@ -49,6 +49,6 @@ export async function scanWorkspace(config: ScannerConfig): Promise<CanonicalDoc
       console.warn(`Error parsing ${filePath}:`, error);
     }
   }
-  
+
   return generateCanonicalDoc(allBlocks);
 }

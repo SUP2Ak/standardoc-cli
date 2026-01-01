@@ -1,4 +1,4 @@
-// @doc.init vector3 Vector3
+// @doc vector3 Vector3
 // @description Classe représentant un vecteur 3D
 // @param x float Composante X
 // @param y float Composante Y
@@ -9,7 +9,7 @@ public:
     
     Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
     
-    // @doc.init vector3_dot dot
+    // @doc vector3_dot dot
     // @description Calcule le produit scalaire de deux vecteurs
     // @param a Vector3 Premier vecteur
     // @param b Vector3 Deuxième vecteur

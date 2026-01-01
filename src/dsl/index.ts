@@ -1,5 +1,5 @@
 /**
- * @doc.init dsl DSL Module
+ * @doc dsl DSL Module
  * @description DSL parser and evaluator for Standardoc expressions
  */
 

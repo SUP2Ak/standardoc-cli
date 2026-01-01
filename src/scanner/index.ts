@@ -1,5 +1,5 @@
 /**
- * @doc.init scanner Scanner Module
+ * @doc scanner Scanner Module
  * @description Workspace scanner for finding and processing files
  */
 

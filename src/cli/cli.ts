@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * @doc.init cli CLI Interface
+ * @doc cli CLI Interface
  * @description Command-line interface for Standardoc
  * @description Commands: scan, transform, watch
  */
@@ -15,6 +15,7 @@ import type { ScannerConfig, CanonicalDoc } from '../types/index';
 import { loadConfig, generateDefaultConfig, mergeCommentPatterns, type StandardocConfig } from '../config/config-loader';
 import { setCustomPatterns } from '../parser/comment-detector';
 import { COMMENT_STYLES } from '../parser/comment-detector';
+import { setDocTagName } from '../extractor/tag-extractor';
 
 interface CLIOptions {
   command?: string;
@@ -26,7 +27,7 @@ interface CLIOptions {
 }
 
 /**
- * @doc.init parseCLIArgs parseCLIArgs
+ * @doc parseCLIArgs parseCLIArgs
  * @description Parses command-line arguments into CLIOptions
  * @returns Parsed CLI options with command and flags
  */
@@ -53,7 +54,7 @@ function parseCLIArgs(): CLIOptions {
 }
 
 /**
- * @doc.init printHelp printHelp
+ * @doc printHelp printHelp
  * @description Prints CLI help message with usage and examples
  */
 function printHelp() {
@@ -86,7 +87,7 @@ Examples:
 }
 
 /**
- * @doc.init main main
+ * @doc main main
  * @description Main CLI entry point
  * @description Handles command routing and error handling
  */
@@ -99,9 +100,15 @@ async function main() {
   }
 
   const workspaceRoot = process.cwd();
-  
+
   // Load custom config if it exists
   const customConfig = loadConfig(workspaceRoot);
+
+  // Set custom doc tag name (default: "doc")
+  const docTagName = customConfig?.docTag || 'doc';
+  setDocTagName(docTagName);
+
+  // Set custom comment patterns
   if (customConfig?.commentPatterns) {
     const mergedPatterns = mergeCommentPatterns(COMMENT_STYLES, customConfig.commentPatterns);
     setCustomPatterns(mergedPatterns);

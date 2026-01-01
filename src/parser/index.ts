@@ -1,5 +1,5 @@
 /**
- * @doc.init parser Parser Module
+ * @doc parser Parser Module
  * @description Comment parser for extracting comments from source files
  */
 
