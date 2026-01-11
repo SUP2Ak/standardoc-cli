@@ -1,5 +1,10 @@
 # Standardoc CLI
 
+> ⚠️ **Important Note:**  
+> This version of `standardoc-cli` is a **prototype**.  
+> A full refactor (v2) is underway, featuring a **complete Rust-based architecture**, support for **VSCode plugins**, an **internal mini-LSP**, and other major improvements.  
+> The current version works but some features are limited or experimental.
+
 A command-line tool for extracting and injecting documentation from code comments using `@tags`.
 
 ## Installation
