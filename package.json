@@ -1,6 +1,6 @@
 {
   "name": "standardoc-cli",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "CLI tool for extracting and injecting documentation from code comments using @tags",
   "type": "module",
   "main": "dist/index.js",
@@ -46,4 +46,3 @@
     "fast-glob": "^3.3.3"
   }
 }
-
