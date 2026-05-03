@@ -1,5 +1,11 @@
 # Standardoc CLI
 
+<div style="border: 1px solid #f05b2e; background-color: #e92e0d23; padding: 16px; border-radius: 10px;">
+<strong style="color:#a65c00;">⚠️ Deprecated:</strong> This repository is deprecated. A v2 reboot-from-scratch is now maintained at <a href="https://github.com/miralabs-tech/standardoc">standardoc</a>.
+</div>
+
+---
+
 > ⚠️ **Important Note:**  
 > This version of `standardoc-cli` is a **prototype**.  
 > A full refactor (v2) is underway, featuring a **complete Rust-based architecture**, support for **VSCode plugins**, an **internal mini-LSP**, and other major improvements.  
