@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "Standardoc Documentation",
+    "loading": "Loading documentation...",
+    "error": "Error",
+    "noDocumentation": "No documentation",
+    "noDocumentationMessage": "Run \"Standardoc: Scan Workspace\" to generate documentation.",
+    "refresh": "Refresh",
+    "blocksCount": "{count} documented block(s)",
+    "duplicatesCount": "{count} group(s) with duplicate keys",
+    "duplicatesTitle": "Duplicate Keys",
+    "occurrences": "{count} occurrence(s)",
+    "allBlocks": "All Blocks",
+    "duplicate": "Duplicate",
+    "file": "File",
+    "line": "Line",
+    "path": "Path",
+    "extension": "Extension",
+    "lastEdit": "Last Edit",
+    "tags": "Tags",
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "editInSource": "Edit in source code",
+    "editKey": "Edit key",
+    "newKey": "New key",
+    "keyUpdated": "Key updated successfully",
+    "keyUpdateFailed": "Failed to update key",
+    "documentation": "Documentation",
+    "configuration": "Configuration",
+    "preview": "Preview",
+    "configComingSoon": "Configuration coming soon...",
+    "previewComingSoon": "Preview coming soon...",
+    "saving": "Saving...",
+    "noConfig": "No configuration file found",
+    "createConfig": "Create configuration"
+  },
+  "config": {
+    "docTag": "Documentation Tag",
+    "docTagHelp": "Tag used to identify documentation blocks (default: 'doc')",
+    "transform": "Transform",
+    "entry": "Entry Directory",
+    "output": "Output Directory",
+    "transformHelp": "Directories for MD/MDX files to transform",
+    "locale": "Language",
+    "localeAuto": "Auto",
+    "localeFr": "French",
+    "localeEn": "English",
+    "localeHelp": "Extension interface language"
+  },
+  "preview": {
+    "files": "Files",
+    "noFiles": "No files found",
+    "selectFile": "Select a file to preview",
+    "original": "Original",
+    "transformed": "Transformed"
+  },
+  "tagEditor": {
+    "editTag": "Edit tag {tag}",
+    "preview": "Preview",
+    "addKey": "Add key",
+    "addType": "Add type",
+    "addDescription": "Add description",
+    "remove": "Remove",
+    "placeholder": {
+      "key": "Key name",
+      "type": "Type (number, string, etc.)",
+      "description": "Description"
+    }
+  }
+}
+

@@ -1,21 +1,36 @@
 {
   "compilerOptions": {
+    "module": "commonjs",
     "target": "ES2022",
-    "module": "ES2022",
-    "lib": ["ES2022"],
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "out",
+    "lib": [
+      "ES2022"
+    ],
+    "sourceMap": true,
     "strict": true,
+    "noImplicitAny": true,
+    "exactOptionalPropertyTypes": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "bundler",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "tests"]
+  "exclude": [
+    "node_modules",
+    ".vscode-test",
+    "examples",
+    "vendors",
+    "src/webview/**/*"
+  ]
 }
 

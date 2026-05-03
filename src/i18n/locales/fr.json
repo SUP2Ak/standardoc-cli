@@ -1,0 +1,72 @@
+{
+  "app": {
+    "title": "Standardoc Documentation",
+    "loading": "Chargement de la documentation...",
+    "error": "Erreur",
+    "noDocumentation": "Aucune documentation",
+    "noDocumentationMessage": "Exécutez \"Standardoc: Scan Workspace\" pour générer la documentation.",
+    "refresh": "Actualiser",
+    "blocksCount": "{count} bloc(s) documenté(s)",
+    "duplicatesCount": "{count} groupe(s) avec clés dupliquées",
+    "duplicatesTitle": "Clés dupliquées",
+    "occurrences": "{count} occurrence(s)",
+    "allBlocks": "Tous les blocs",
+    "duplicate": "Dupliqué",
+    "file": "Fichier",
+    "line": "Ligne",
+    "path": "Chemin",
+    "extension": "Extension",
+    "lastEdit": "Dernière modification",
+    "tags": "Tags",
+    "edit": "Modifier",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "editInSource": "Modifier dans le code source",
+    "editKey": "Modifier la clé",
+    "newKey": "Nouvelle clé",
+    "keyUpdated": "Clé mise à jour avec succès",
+    "keyUpdateFailed": "Échec de la mise à jour de la clé",
+    "documentation": "Documentation",
+    "configuration": "Configuration",
+    "preview": "Aperçu",
+    "configComingSoon": "Configuration en cours de développement...",
+    "previewComingSoon": "Aperçu en cours de développement...",
+    "saving": "Enregistrement...",
+    "noConfig": "Aucun fichier de configuration trouvé",
+    "createConfig": "Créer la configuration"
+  },
+  "config": {
+    "docTag": "Tag de documentation",
+    "docTagHelp": "Tag utilisé pour identifier les blocs de documentation (par défaut: 'doc')",
+    "transform": "Transformation",
+    "entry": "Répertoire d'entrée",
+    "output": "Répertoire de sortie",
+    "transformHelp": "Répertoires pour les fichiers MD/MDX à transformer",
+    "locale": "Langue",
+    "localeAuto": "Automatique",
+    "localeFr": "Français",
+    "localeEn": "Anglais",
+    "localeHelp": "Langue de l'interface de l'extension"
+  },
+  "preview": {
+    "files": "Fichiers",
+    "noFiles": "Aucun fichier trouvé",
+    "selectFile": "Sélectionnez un fichier pour voir l'aperçu",
+    "original": "Original",
+    "transformed": "Transformé"
+  },
+  "tagEditor": {
+    "editTag": "Modifier le tag {tag}",
+    "preview": "Aperçu",
+    "addKey": "Ajouter une clé",
+    "addType": "Ajouter un type",
+    "addDescription": "Ajouter une description",
+    "remove": "Supprimer",
+    "placeholder": {
+      "key": "Nom de la clé",
+      "type": "Type (number, string, etc.)",
+      "description": "Description"
+    }
+  }
+}
+

@@ -1,0 +1,4 @@
+[install]
+# Use npm for compatibility with VS Code
+# but Bun can be used for development scripts
+auto = true

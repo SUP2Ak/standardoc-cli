@@ -1,48 +1,109 @@
 {
-  "name": "standardoc-cli",
-  "version": "1.1.1",
-  "description": "CLI tool for extracting and injecting documentation from code comments using @tags",
-  "type": "module",
-  "main": "dist/index.js",
-  "bin": {
-    "standardoc": "./dist/cli/cli.js"
+  "name": "standardoc",
+  "displayName": "Standardoc",
+  "description": "Extension VS Code pour parser et générer de la documentation depuis les commentaires avec @tags",
+  "version": "0.1.0",
+  "publisher": "standardoc",
+  "engines": {
+    "vscode": "^1.80.0"
   },
-  "scripts": {
-    "build": "tsc && node scripts/add-extensions.js",
-    "watch": "tsc --watch",
-    "test": "bun test",
-    "dev": "bun run build && node dist/cli/cli.js"
-  },
+  "categories": [
+    "Documentation",
+    "Other"
+  ],
   "keywords": [
     "documentation",
     "comments",
     "parser",
     "tags",
-    "docs",
-    "cli",
-    "markdown",
-    "mdx",
-    "code-documentation"
+    "docs"
   ],
-  "author": "Standardoc",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SUP2Ak/standardoc-cli.git"
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "standardoc.scan",
+        "title": "Standardoc: Scan Workspace",
+        "category": "Standardoc"
+      },
+      {
+        "command": "standardoc.transform",
+        "title": "Standardoc: Transform Markdown Files",
+        "category": "Standardoc"
+      },
+      {
+        "command": "standardoc.openPanel",
+        "title": "Standardoc: Open Documentation Panel",
+        "category": "Standardoc"
+      },
+      {
+        "command": "standardoc.init",
+        "title": "Standardoc: Initialize Configuration",
+        "category": "Standardoc"
+      }
+    ],
+    "configuration": {
+      "title": "Standardoc",
+      "properties": {
+        "standardoc.enableDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "Activer les diagnostics optionnels (warnings non bloquants)"
+        },
+        "standardoc.outputPath": {
+          "type": "string",
+          "default": ".standardoc",
+          "description": "Chemin de sortie pour les fichiers générés (relatif au workspace root)"
+        },
+        "standardoc.cliPath": {
+          "type": "string",
+          "default": "",
+          "description": "Chemin personnalisé vers le CLI Standardoc (laisser vide pour utiliser vendors/standardoc-cli)"
+        },
+        "standardoc.includePatterns": {
+          "type": "array",
+          "default": [
+            "**/*"
+          ],
+          "description": "Patterns de fichiers à inclure (glob)"
+        },
+        "standardoc.excludePatterns": {
+          "type": "array",
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/dist/**",
+            "**/build/**"
+          ],
+          "description": "Patterns de fichiers à exclure (glob)"
+        }
+      }
+    }
   },
-  "files": [
-    "dist",
-    "README.md",
-    "USAGE.md",
-    "CONTRIBUTING.md",
-    "LICENSE"
-  ],
-  "devDependencies": {
-    "@types/node": "^20.10.0",
-    "typescript": "^5.3.0"
+  "scripts": {
+    "compile": "tsc -p ./ && node scripts/build-webview.js && node scripts/copy-i18n.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:tsc": "tsc -watch -p ./",
+    "watch:webview": "node scripts/build-webview.js --watch",
+    "package": "npm run compile && vsce package",
+    "test": "bun test"
   },
   "dependencies": {
-    "fast-glob": "^3.3.3"
+    "fast-glob": "^3.3.1",
+    "minimatch": "^10.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/vscode": "^1.80.0",
+    "esbuild": "^0.25.12",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.3.0"
   }
 }
-
